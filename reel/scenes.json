@@ -1,0 +1,63 @@
+{
+  "title": "Yamraj OTP Pending",
+  "header": "Yamraj Bhi OTP Ka Wait Kar Raha Tha?",
+  "voice": "hi-IN-MadhurNeural",
+  "scenes": [
+    {
+      "id": "01",
+      "image_prompt": "Hilarious vertical 9:16 digital illustration, Indian street food pani puri stall at night, young man eating pani puri with shocked wide eyes as one golgappa explodes in mouth, comedic exaggerated expression, vibrant colors, cinematic lighting, no text, meme-worthy funny moment, high quality mobile game art style",
+      "narration": "Ek bite. Bas ek bite. Soul seedha afterlife queue mein.",
+      "captions": ["EK BITE.", "BAS EK BITE.", "SOUL SEEDHA", "QUEUE MEIN"],
+      "sfx": "pop"
+    },
+    {
+      "id": "02",
+      "image_prompt": "Funny vertical 9:16 illustration, cartoon soul floating out of body of man lying near pani puri stall, soul looks confused holding empty wallet, neon purple cosmic background, comedic style, no text",
+      "narration": "Pani puri ne network kill kar diya. Welcome to afterlife support.",
+      "captions": ["PANi PURi NE", "NETWORK KILL", "WELCOME TO", "AFTERSUPPORT"],
+      "sfx": "whoosh"
+    },
+    {
+      "id": "03",
+      "image_prompt": "Hilarious vertical 9:16 mythological comedy art, Lord Yamraj sitting on throne wearing sunglasses holding smartphone showing OTP screen, frustrated expression, dark dramatic underworld office with fluorescent lights, funny modern twist, no text",
+      "narration": "Yamraj bole OTP bheja hai. Last ten seconds ka galat decision hi password hai.",
+      "captions": ["YAMRAJ BOLE", "OTP BHEJA HAI", "LAST TEN SEC", "PASSWORD HAI"],
+      "sfx": "notification"
+    },
+    {
+      "id": "04",
+      "image_prompt": "Funny vertical 9:16 illustration, Chitragupta as tired accountant with giant laptop showing spreadsheet titled karma pending, red FAILED payment icons, celestial office comedy, no text",
+      "narration": "Chitragupta bola karma UPI pending hai. Retry dabao ya Sharma ke beta ko refer karo.",
+      "captions": ["KARMA UPI", "PENDING HAI", "RETRY DABAO", "REFER SHARMA"],
+      "sfx": "error"
+    },
+    {
+      "id": "05",
+      "image_prompt": "Comedic vertical 9:16 art, glowing perfect golden Indian student Sharma ji ka beta walking on red carpet toward golden heaven gates with trophy, angel spotlight, exaggerated heroic pose, funny satire, no text",
+      "narration": "Sharma ka beta VIP entry leke swarg gaya. Aap abhi captcha solve kar rahe ho.",
+      "captions": ["SHARMA KA BETA", "VIP ENTRY", "SWARG GAYA", "CAPTCHA SOLVE"],
+      "sfx": "success"
+    },
+    {
+      "id": "06",
+      "image_prompt": "Hilarious vertical 9:16 digital art, ordinary funny Indian guy showing phone meme to Yamraj who is laughing hard tears in eyes, underworld throne room, warm comedy lighting, no text",
+      "narration": "Maine meme dikhaya jisme Yamraj late tha. System crash. Hasi se gate unlock.",
+      "captions": ["MEME DIKHAYA", "YAMRAJ LATE", "SYSTEM CRASH", "GATE UNLOCK"],
+      "sfx": "laugh"
+    },
+    {
+      "id": "07",
+      "image_prompt": "Funny vertical 9:16 illustration, heaven gate opens with confetti, same ordinary guy walking in while eating pani puri again, gods facepalming in background, bright golden clouds comedy scene, no text",
+      "narration": "Moral: universe serious nahi. Content se hasa diya toh entry mil sakti hai.",
+      "captions": ["UNIVERSE", "SERIOUS NAHI", "HASA DIYA", "ENTRY MIL GAYI"],
+      "sfx": "celebration"
+    },
+    {
+      "id": "08",
+      "image_prompt": "Premium vertical 9:16 branding end card, deep purple cosmic gradient, bold modern logo text PanelVerse in center, subtitle Developed by PanelVerse Branding, sleek minimal tech-creative agency style, gold accent lines, no other text clutter",
+      "narration": "Funny story reels chahiye? Developed by PanelVerse Branding. Follow karo.",
+      "captions": ["PANELVERSE", "DEVELOPED BY", "PANELVERSE", "FOLLOW FOR MORE"],
+      "sfx": "ding"
+    }
+  ]
+}
