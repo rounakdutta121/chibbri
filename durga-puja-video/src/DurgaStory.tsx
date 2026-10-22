@@ -1,5 +1,5 @@
 import { loadFont } from "@remotion/google-fonts/NotoSerif";
-import { AbsoluteFill, Sequence } from "remotion";
+import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
 import { BrandWatermark } from "./BrandWatermark";
 import { ImageSlide } from "./ImageSlide";
 import { SCENES } from "./scenes";
@@ -33,6 +33,7 @@ export const DurgaStory: React.FC = () => {
         );
       })}
       <BrandWatermark />
+      <Audio src={staticFile("audio/vaaroon-clip.mp3")} volume={0.92} />
     </AbsoluteFill>
   );
 };
