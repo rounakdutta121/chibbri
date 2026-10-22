@@ -25,8 +25,9 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 
-const BEAT = 90; // 3 seconds — faster cuts for a livelier minute
+const BEAT = 90;
 
+/** Every scene uses a distinct image file — no repeats in one minute. */
 export const SCENES: StoryScene[] = [
   {
     image: "images/durga-scene-01-child.jpg",
@@ -45,7 +46,7 @@ export const SCENES: StoryScene[] = [
     focus: "top",
   },
   {
-    image: "images/canonical-durga-idol.jpg",
+    image: "images/durga-unique-03-full-pandal.jpg",
     caption: "Bengali Ma Durga — lion, Mahishasur, four gods beside her",
     motion: "driftUp",
     durationInFrames: BEAT,
@@ -53,7 +54,7 @@ export const SCENES: StoryScene[] = [
     focus: "center",
   },
   {
-    image: "images/canonical-durga-idol.jpg",
+    image: "images/durga-unique-04-lion-mahishasur.jpg",
     caption: "",
     motion: "punchIn",
     durationInFrames: Math.round(BEAT * 0.7),
@@ -86,7 +87,7 @@ export const SCENES: StoryScene[] = [
     focus: "center",
   },
   {
-    image: "images/canonical-durga-idol.jpg",
+    image: "images/durga-unique-08-crowd-angle.jpg",
     caption: "Same Ma every year — ekchala, heart of Kolkata",
     motion: "panRight",
     durationInFrames: BEAT,
@@ -126,13 +127,12 @@ export const SCENES: StoryScene[] = [
     focus: "center",
   },
   {
-    image: "images/canonical-durga-idol.jpg",
+    image: "images/durga-unique-13-weapons-close.jpg",
     caption: "Ma stays unchanged — power in her ten hands",
     motion: "zoomOut",
     durationInFrames: Math.round(BEAT * 0.8),
     captionPlacement: "top",
     focus: "left",
-    showCaption: true,
   },
   {
     image: "images/durga-scene-07-navami.jpg",
@@ -167,7 +167,7 @@ export const SCENES: StoryScene[] = [
     focus: "center",
   },
   {
-    image: "images/canonical-durga-idol.jpg",
+    image: "images/durga-unique-18-dhunuchi-glow.jpg",
     caption: "",
     motion: "panLeft",
     durationInFrames: Math.round(BEAT * 0.65),
@@ -184,7 +184,7 @@ export const SCENES: StoryScene[] = [
     focus: "center",
   },
   {
-    image: "images/durga-scene-02-mahalaya.jpg",
+    image: "images/durga-unique-20-bijoya-dawn.jpg",
     caption: "Until next Mahalaya… Subho Bijoya",
     motion: "driftUp",
     durationInFrames: BEAT + 76,
@@ -197,3 +197,9 @@ export const TOTAL_DURATION_IN_FRAMES = SCENES.reduce(
   (sum, scene) => sum + scene.durationInFrames,
   0,
 );
+
+const imagePaths = SCENES.map((s) => s.image);
+const dupes = imagePaths.filter((p, i) => imagePaths.indexOf(p) !== i);
+if (dupes.length > 0) {
+  throw new Error(`Duplicate scene images are not allowed: ${dupes.join(", ")}`);
+}
