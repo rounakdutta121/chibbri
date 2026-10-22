@@ -10,12 +10,12 @@ export const DurgaStory: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ fontFamily }}>
-      {SCENES.map((scene) => {
+      {SCENES.map((scene, index) => {
         const from = offset;
         offset += scene.durationInFrames;
         return (
           <Sequence
-            key={scene.image}
+            key={`${scene.image}-${index}`}
             from={from}
             durationInFrames={scene.durationInFrames}
           >
@@ -24,6 +24,9 @@ export const DurgaStory: React.FC = () => {
               caption={scene.caption}
               motion={scene.motion}
               durationInFrames={scene.durationInFrames}
+              captionPlacement={scene.captionPlacement}
+              focus={scene.focus}
+              showCaption={scene.showCaption !== false}
             />
           </Sequence>
         );
