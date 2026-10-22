@@ -1,5 +1,6 @@
 import { loadFont } from "@remotion/google-fonts/NotoSerif";
 import { AbsoluteFill, Sequence } from "remotion";
+import { BrandWatermark } from "./BrandWatermark";
 import { ImageSlide } from "./ImageSlide";
 import { SCENES } from "./scenes";
 
@@ -31,6 +32,7 @@ export const DurgaStory: React.FC = () => {
           </Sequence>
         );
       })}
+      <BrandWatermark />
     </AbsoluteFill>
   );
 };
