@@ -54,7 +54,7 @@ async function ensureMusic() {
     '-t',
     String(REEL_SECONDS),
     '-af',
-    'afade=t=in:st=0:d=1.2,afade=t=out:st=28.2:d=1.8,volume=0.32',
+    'afade=t=in:st=0:d=1.2,afade=t=out:st=28.2:d=1.8,volume=0.42',
     musicBed,
   ]);
 }
