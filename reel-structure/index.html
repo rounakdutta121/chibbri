@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>Structure Reel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@500;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: #ebe8e1;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    #stage {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      color: #121212;
+    }
+    .paper {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0,0,0,0.04), transparent 40%),
+        radial-gradient(circle at 80% 90%, rgba(0,0,0,0.05), transparent 45%),
+        #ebe8e1;
+    }
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.35;
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .crosshair {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      width: 720px;
+      height: 720px;
+      transform: translate(-50%, -50%);
+      opacity: 0.25;
+    }
+    .crosshair::before,
+    .crosshair::after {
+      content: "";
+      position: absolute;
+      background: rgba(0,0,0,0.35);
+    }
+    .crosshair::before { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-50%); }
+    .crosshair::after { top: 50%; left: 0; height: 1px; width: 100%; transform: translateY(-50%); }
+    .label-top {
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 22px;
+      letter-spacing: 0.35em;
+      opacity: 0.45;
+    }
+    .def-blurb {
+      position: absolute;
+      left: 90px;
+      right: 90px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 20px;
+      line-height: 1.55;
+      color: rgba(0,0,0,0.35);
+      text-align: center;
+    }
+    .def-blurb.top { top: 180px; }
+    .def-blurb.mid { top: 260px; }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 70px;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .headline {
+      font-family: "Archivo Black", Inter, sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      font-size: 92px;
+      z-index: 5;
+    }
+    .headline .red { color: #8b1e1e; }
+    .headline .strike {
+      position: relative;
+      display: inline-block;
+    }
+    .headline .strike::after {
+      content: "";
+      position: absolute;
+      left: -4%;
+      right: -4%;
+      top: 52%;
+      height: 8px;
+      background: linear-gradient(90deg, transparent, #8b1e1e, #8b1e1e, transparent);
+      transform: rotate(-8deg);
+      box-shadow: 0 0 12px rgba(139,30,30,0.5);
+    }
+    .subline {
+      margin-top: 36px;
+      font-size: 54px;
+      font-weight: 800;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    /* Glasses */
+    .glasses-wrap {
+      position: relative;
+      width: 420px;
+      height: 180px;
+      margin-bottom: 80px;
+    }
+    .glasses-wrap svg { width: 100%; height: 100%; filter: drop-shadow(0 18px 24px rgba(0,0,0,0.15)); }
+    .shard {
+      position: absolute;
+      width: 28px;
+      height: 18px;
+      background: rgba(20,20,20,0.85);
+      border-radius: 2px;
+      opacity: 0;
+    }
+
+    /* Column */
+    .column {
+      width: 220px;
+      margin-bottom: 70px;
+      filter: drop-shadow(0 24px 30px rgba(0,0,0,0.18));
+    }
+
+    /* Notepad */
+    .notepad {
+      position: relative;
+      width: 520px;
+      height: 360px;
+      background: #f7f4ec;
+      border: 3px solid rgba(0,0,0,0.65);
+      box-shadow: 12px 16px 0 rgba(0,0,0,0.08);
+      margin-bottom: 50px;
+      transform: rotate(-4deg);
+    }
+    .notepad::before {
+      content: "";
+      position: absolute;
+      left: 36px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(139,30,30,0.35);
+    }
+    .notepad-lines {
+      position: absolute;
+      inset: 40px 40px 40px 70px;
+      background: repeating-linear-gradient(
+        transparent,
+        transparent 34px,
+        rgba(0,0,0,0.08) 35px
+      );
+    }
+    .pin {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ff6b6b, #8b1e1e);
+      box-shadow: 0 6px 0 #5c1010;
+    }
+    .weak-circle {
+      position: absolute;
+      left: 120px;
+      top: 130px;
+      width: 180px;
+      height: 90px;
+      border: 5px solid #8b1e1e;
+      border-radius: 50%;
+      transform: rotate(-8deg);
+      opacity: 0;
+    }
+    .useless {
+      font-size: 110px;
+      color: #8b1e1e;
+      font-family: "Archivo Black", sans-serif;
+      letter-spacing: -0.04em;
+      transform: scale(0.6);
+      opacity: 0;
+    }
+
+    /* Bricks */
+    .brick-wall {
+      position: relative;
+      width: 640px;
+      height: 420px;
+      margin-bottom: 40px;
+    }
+    .brick {
+      position: absolute;
+      width: 150px;
+      height: 64px;
+      background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+      border: 2px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 -6px 0 rgba(0,0,0,0.25);
+      transform: translateY(120px);
+      opacity: 0;
+    }
+    .mag-glass {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border: 14px solid #111;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -20%) scale(0.6);
+      opacity: 0;
+      z-index: 10;
+    }
+    .mag-glass::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 18px;
+      background: #111;
+      right: -70px;
+      bottom: 10px;
+      transform: rotate(45deg);
+      border-radius: 8px;
+    }
+    .mag-text {
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      transform: translate(-50%, -50%);
+      font-size: 44px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      opacity: 0;
+      z-index: 8;
+      line-height: 1.1;
+    }
+
+    /* Key */
+    .key {
+      width: 340px;
+      margin-bottom: 60px;
+      filter: drop-shadow(0 20px 28px rgba(0,0,0,0.2));
+    }
+
+    /* CTA */
+    .booklet {
+      position: relative;
+      width: 320px;
+      height: 420px;
+      background: #faf7f0;
+      border: 3px solid #111;
+      box-shadow: 10px 12px 0 rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 70px;
+    }
+    .booklet .clip {
+      position: absolute;
+      top: -8px;
+      left: 24px;
+      width: 48px;
+      height: 100px;
+      border: 6px solid #888;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+    }
+    .booklet h3 {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 54px;
+      color: #8b1e1e;
+      line-height: 1;
+    }
+    .booklet p {
+      font-size: 34px;
+      font-style: italic;
+      margin-top: 8px;
+    }
+    .comment-box {
+      width: 760px;
+      background: #fff;
+      border-radius: 28px;
+      border: 2px solid rgba(0,0,0,0.08);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #444, #111);
+      flex-shrink: 0;
+    }
+    .comment-input {
+      flex: 1;
+      font-size: 36px;
+      color: #333;
+      font-weight: 600;
+      min-height: 48px;
+    }
+    .comment-input .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 36px;
+      background: #8b1e1e;
+      margin-left: 4px;
+      vertical-align: -4px;
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    #ready-flag { display: none; }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div class="paper"></div>
+    <div class="grid"></div>
+    <div class="grain"></div>
+    <div class="crosshair"></div>
+    <div class="label-top">STRUCTURE — REEL</div>
+
+    <!-- Scene 1 -->
+    <section class="scene" id="s1">
+      <p class="def-blurb top" id="def-invisible">
+        Invisible editing prioritizes continuity and visual coherence — techniques that blend seamlessly without drawing attention to the process.
+      </p>
+      <div class="glasses-wrap" id="glasses">
+        <svg viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="120" cy="90" r="62" stroke="#111" stroke-width="10" />
+          <circle cx="300" cy="90" r="62" stroke="#111" stroke-width="10" />
+          <path d="M182 90 H238" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+          <path d="M58 78 C20 70 8 40 8 20" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+          <path d="M362 78 C400 70 412 40 412 20" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1 class="headline" id="h1">
+        Your content is<br /><span class="strike red">INVISIBLE</span>
+      </h1>
+      <p class="subline" id="h1b">not an <span class="red">Editing</span> problem</p>
+    </section>
+
+    <!-- Scene 2 -->
+    <section class="scene" id="s2">
+      <p class="def-blurb mid">
+        Structure is the underlying framework — the load-bearing plan before tools, effects, or polish are applied.
+      </p>
+      <svg class="column" viewBox="0 0 120 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="250" width="100" height="50" fill="#c9c3b8" stroke="#111" stroke-width="3"/>
+        <path d="M20 250 L60 40 L100 250 Z" fill="#ddd7cb" stroke="#111" stroke-width="3"/>
+        <rect x="35" y="70" width="50" height="12" fill="#8b1e1e" opacity="0.8"/>
+        <rect x="35" y="100" width="50" height="12" fill="#8b1e1e" opacity="0.8"/>
+        <rect x="35" y="130" width="50" height="12" fill="#8b1e1e" opacity="0.8"/>
+      </svg>
+      <h2 class="headline">It's a<br /><span class="red">Structure</span><br />Problem</h2>
+    </section>
+
+    <!-- Scene 3 -->
+    <section class="scene" id="s3">
+      <div class="notepad">
+        <div class="pin"></div>
+        <div class="notepad-lines"></div>
+        <div class="weak-circle" id="weak"></div>
+      </div>
+      <p class="subline" style="margin-top:0;margin-bottom:24px;">if your script is <span class="red">Weak</span></p>
+      <p class="subline" style="font-size:46px;margin-top:0;">Motion Design</p>
+      <div class="useless" id="useless">USELESS</div>
+    </section>
+
+    <!-- Scene 4 -->
+    <section class="scene" id="s4">
+      <p class="subline" style="margin-bottom:30px;">Over<span class="red">editing</span></p>
+      <div class="brick-wall" id="wall">
+        <!-- bricks injected by JS -->
+      </div>
+      <div class="mag-glass" id="mag"></div>
+      <p class="mag-text" id="magtext">hides the<br /><span class="red">Problem</span></p>
+    </section>
+
+    <!-- Scene 5 -->
+    <section class="scene" id="s5">
+      <svg class="key" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="42" cy="40" r="34" fill="#caa85a" stroke="#111" stroke-width="4"/>
+        <circle cx="42" cy="40" r="14" fill="#ebe8e1" stroke="#111" stroke-width="3"/>
+        <rect x="74" y="34" width="110" height="12" rx="4" fill="#caa85a" stroke="#111" stroke-width="3"/>
+        <rect x="150" y="22" width="12" height="16" fill="#caa85a" stroke="#111" stroke-width="3"/>
+        <rect x="168" y="28" width="12" height="16" fill="#caa85a" stroke="#111" stroke-width="3"/>
+      </svg>
+      <h2 class="headline"><span class="red">Structure</span><br />Solves it</h2>
+    </section>
+
+    <!-- Scene 6 -->
+    <section class="scene" id="s6">
+      <p class="subline" style="margin-bottom:50px;">Want my <span class="red">SCRIPT</span> framework</p>
+      <div class="booklet">
+        <div class="clip"></div>
+        <h3>SCRIPT</h3>
+        <p>framework</p>
+      </div>
+      <div class="comment-box">
+        <div class="avatar"></div>
+        <div class="comment-input"><span id="typed"></span><span class="cursor" id="caret"></span></div>
+      </div>
+    </section>
+  </div>
+  <div id="ready-flag"></div>
+
+  <script>
+    const DURATION = 19;
+    const bricks = [];
+    const wall = document.getElementById('wall');
+    const rows = 5;
+    const cols = 4;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const b = document.createElement('div');
+        b.className = 'brick';
+        const offset = r % 2 ? 78 : 0;
+        b.style.left = `${c * 158 + offset}px`;
+        b.style.top = `${r * 72}px`;
+        wall.appendChild(b);
+        bricks.push(b);
+      }
+    }
+
+    const shards = [];
+    for (let i = 0; i < 14; i++) {
+      const s = document.createElement('div');
+      s.className = 'shard';
+      document.getElementById('glasses').appendChild(s);
+      shards.push(s);
+    }
+
+    function showScene(id) {
+      gsap.set('.scene', { autoAlpha: 0 });
+      gsap.set(id, { autoAlpha: 1 });
+    }
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    // Scene 1
+    tl.add(() => showScene('#s1'))
+      .from('#glasses', { y: -80, rotation: -8, duration: 0.7 })
+      .from('#h1', { scale: 0.7, opacity: 0, duration: 0.55 }, '-=0.2')
+      .from('#h1b', { y: 40, opacity: 0, duration: 0.45 }, '-=0.1')
+      .to('#glasses', { duration: 0.05 })
+      .to('#glasses svg', { scale: 1.05, duration: 0.12, yoyo: true, repeat: 1 })
+      .add(() => {
+        shards.forEach((s, i) => {
+          const angle = (i / shards.length) * Math.PI * 2;
+          gsap.set(s, {
+            left: 180 + Math.cos(angle) * 40,
+            top: 70 + Math.sin(angle) * 20,
+            opacity: 1,
+            rotation: gsap.utils.random(-40, 40)
+          });
+          gsap.to(s, {
+            x: Math.cos(angle) * gsap.utils.random(120, 260),
+            y: Math.sin(angle) * gsap.utils.random(80, 200),
+            rotation: gsap.utils.random(-180, 180),
+            opacity: 0,
+            duration: 0.75,
+            ease: 'power2.out'
+          });
+        });
+        gsap.to('#glasses svg', { opacity: 0, duration: 0.25 });
+      })
+      .to('#s1', { autoAlpha: 0, duration: 0.25 }, '+=0.35');
+
+    // Scene 2
+    tl.add(() => showScene('#s2'))
+      .from('.column', { y: 120, opacity: 0, duration: 0.55 })
+      .from('#s2 .headline', { y: 60, opacity: 0, duration: 0.5 }, '-=0.15')
+      .to('#s2', { autoAlpha: 0, duration: 0.25 }, '+=1.1');
+
+    // Scene 3
+    tl.add(() => showScene('#s3'))
+      .from('.notepad', { scale: 0.6, rotation: -12, opacity: 0, duration: 0.55 })
+      .to('#weak', { opacity: 1, scale: 1, duration: 0.35 })
+      .from('#s3 .subline', { y: 30, opacity: 0, duration: 0.4 }, '-=0.1')
+      .to('#useless', { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' })
+      .to('#s3', { autoAlpha: 0, duration: 0.25 }, '+=0.85');
+
+    // Scene 4
+    tl.add(() => showScene('#s4'))
+      .from('#s4 .subline', { y: 30, opacity: 0, duration: 0.35 });
+    bricks.forEach((b, i) => {
+      tl.to(b, { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' }, `+=${i === 0 ? 0 : 0.04}`);
+    });
+    tl.to('#mag', { opacity: 1, scale: 1, x: -40, duration: 0.55 }, '-=0.3')
+      .to('#magtext', { opacity: 1, duration: 0.35 }, '-=0.2')
+      .to('#s4', { autoAlpha: 0, duration: 0.25 }, '+=0.7');
+
+    // Scene 5
+    tl.add(() => showScene('#s5'))
+      .from('.key', { rotation: -30, scale: 0.5, opacity: 0, duration: 0.55 })
+      .from('#s5 .headline', { y: 50, opacity: 0, duration: 0.45 }, '-=0.15')
+      .to('#s5', { autoAlpha: 0, duration: 0.25 }, '+=0.95');
+
+    // Scene 6
+    tl.add(() => showScene('#s6'))
+      .from('#s6 .subline', { y: 30, opacity: 0, duration: 0.4 })
+      .from('.booklet', { y: 40, opacity: 0, duration: 0.45 })
+      .from('.comment-box', { y: 30, opacity: 0, duration: 0.4 }, '-=0.1');
+
+    const word = 'structure';
+    const typed = document.getElementById('typed');
+    word.split('').forEach((ch, i) => {
+      tl.add(() => { typed.textContent = word.slice(0, i + 1); }, `+=${i === 0 ? 0.35 : 0.11}`);
+    });
+    tl.to({}, { duration: 0.8 });
+
+    window.__REEL_DONE__ = false;
+    tl.eventCallback('onComplete', () => {
+      window.__REEL_DONE__ = true;
+      document.getElementById('ready-flag').dataset.done = '1';
+    });
+
+    window.startReel = () => {
+      tl.restart();
+      window.__REEL_DONE__ = false;
+    };
+
+    window.addEventListener('load', () => {
+      document.getElementById('ready-flag').dataset.ready = '1';
+    });
+  </script>
+</body>
+</html>
