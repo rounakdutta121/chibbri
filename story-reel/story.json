@@ -1,0 +1,34 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "sceneDuration": 4.35,
+  "transitionDuration": 0.35,
+  "scenes": [
+    { "image": "scene-01.jpg", "subtitle": "He knew they were watching." },
+    { "image": "scene-02.jpg", "subtitle": "Midnight. Wrong city." },
+    { "image": "scene-03.jpg", "subtitle": "Footsteps. Closer." },
+    { "image": "scene-04.jpg", "subtitle": "The briefcase. Don't drop it." },
+    { "image": "scene-05.jpg", "subtitle": "Dead end." },
+    { "image": "scene-06.jpg", "subtitle": "Two shadows. One way out." },
+    { "image": "scene-07.jpg", "subtitle": "He moved first." },
+    { "image": "scene-08.jpg", "subtitle": "Glass rained like bullets." },
+    { "image": "scene-09.jpg", "subtitle": "Up. Always up." },
+    { "image": "scene-10.jpg", "subtitle": "Edge of the world." },
+    { "image": "scene-11.jpg", "subtitle": "No time to breathe." },
+    { "image": "scene-12.jpg", "subtitle": "Jump — or die." },
+    { "image": "scene-13.jpg", "subtitle": "The truth was inside." },
+    { "image": "scene-14.jpg", "subtitle": "Gone before sunrise." },
+    { "image": "scene-15.jpg", "subtitle": "Silence again." }
+  ],
+  "sfx": [
+    { "file": "heartbeat.wav", "start": 0.5, "volume": 0.35 },
+    { "file": "footsteps.wav", "start": 8.5, "volume": 0.55 },
+    { "file": "footsteps.wav", "start": 12.0, "volume": 0.45 },
+    { "file": "glass.wav", "start": 28.5, "volume": 0.7 },
+    { "file": "whoosh.wav", "start": 33.0, "volume": 0.65 },
+    { "file": "whoosh.wav", "start": 39.5, "volume": 0.75 },
+    { "file": "impact.wav", "start": 43.5, "volume": 0.8 },
+    { "file": "whoosh.wav", "start": 48.0, "volume": 0.5 }
+  ]
+}
