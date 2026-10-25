@@ -1,0 +1,154 @@
+import React from 'react';
+import {
+	AbsoluteFill,
+	Audio,
+	Img,
+	interpolate,
+	staticFile,
+	useCurrentFrame,
+	useVideoConfig,
+	Easing,
+} from 'remotion';
+import subtitles from './subtitles.json';
+import scenes from './scenes.json';
+import {PremiumSubtitle} from './PremiumSubtitle';
+import {PanelVerseCredit} from './PanelVerseCredit';
+
+type Scene = (typeof scenes)[number];
+
+const images = (index: number) =>
+	staticFile(`images/fatakeshto-${String(index).padStart(2, '0')}.jpg`);
+
+const getActiveScene = (timeSec: number): Scene => {
+	const found = scenes.find((s) => timeSec >= s.start && timeSec < s.end);
+	return found ?? scenes[scenes.length - 1];
+};
+
+const SceneImage: React.FC<{
+	src: string;
+	frameInScene: number;
+	sceneDurationFrames: number;
+}> = ({src, frameInScene, sceneDurationFrames}) => {
+	const zoom = interpolate(frameInScene, [0, sceneDurationFrames], [1.02, 1.1], {
+		extrapolateRight: 'clamp',
+		easing: Easing.inOut(Easing.quad),
+	});
+	const panX = interpolate(frameInScene, [0, sceneDurationFrames], [-0.5, 0.5], {
+		extrapolateRight: 'clamp',
+	});
+	const panY = interpolate(frameInScene, [0, sceneDurationFrames], [1, -1.5], {
+		extrapolateRight: 'clamp',
+	});
+	const fadeIn = interpolate(frameInScene, [0, 10], [0, 1], {extrapolateRight: 'clamp'});
+	const fadeOut = interpolate(
+		frameInScene,
+		[sceneDurationFrames - 12, sceneDurationFrames],
+		[1, 0],
+		{extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+	);
+	const opacity = Math.min(fadeIn, fadeOut);
+
+	return (
+		<AbsoluteFill style={{opacity}}>
+			<Img
+				src={src}
+				style={{
+					width: '100%',
+					height: '100%',
+					objectFit: 'cover',
+					transform: `scale(${zoom}) translate(${panX}%, ${panY}%)`,
+				}}
+			/>
+			<AbsoluteFill
+				style={{
+					background:
+						'radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.55) 100%)',
+				}}
+			/>
+		</AbsoluteFill>
+	);
+};
+
+export const FatakeshtoVideo: React.FC = () => {
+	const frame = useCurrentFrame();
+	const {fps, durationInFrames} = useVideoConfig();
+	const timeSec = frame / fps;
+
+	const scene = getActiveScene(timeSec);
+	const sceneIndex = scenes.indexOf(scene);
+	const nextScene = scenes[sceneIndex + 1];
+
+	const sceneStartFrame = Math.round(scene.start * fps);
+	const sceneEndFrame = Math.round(scene.end * fps);
+	const sceneDurationFrames = Math.max(1, sceneEndFrame - sceneStartFrame);
+	const frameInScene = frame - sceneStartFrame;
+
+	const crossfade =
+		nextScene && frameInScene >= sceneDurationFrames - 12
+			? interpolate(
+					frameInScene,
+					[sceneDurationFrames - 12, sceneDurationFrames],
+					[0, 1],
+					{extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+				)
+			: 0;
+
+	const activeSubtitle = subtitles.find((s) => timeSec >= s.start && timeSec < s.end);
+	const subtitle = activeSubtitle?.text ?? '';
+	const subtitleKey = activeSubtitle ? `${activeSubtitle.start}-${activeSubtitle.text}` : 'none';
+
+	const flash = interpolate(frame % 24, [0, 3, 24], [0.08, 0, 0], {extrapolateRight: 'clamp'});
+
+	return (
+		<AbsoluteFill style={{backgroundColor: '#0a0208'}}>
+			<SceneImage
+				src={images(scene.image)}
+				frameInScene={frameInScene}
+				sceneDurationFrames={sceneDurationFrames}
+			/>
+			{crossfade > 0 && nextScene && (
+				<AbsoluteFill style={{opacity: crossfade}}>
+					<SceneImage
+						src={images(nextScene.image)}
+						frameInScene={0}
+						sceneDurationFrames={Math.round((nextScene.end - nextScene.start) * fps)}
+					/>
+				</AbsoluteFill>
+			)}
+
+			<AbsoluteFill
+				style={{
+					background: `linear-gradient(180deg, rgba(120,0,40,${flash}) 0%, transparent 28%, transparent 52%, rgba(0,0,0,0.78) 100%)`,
+				}}
+			/>
+
+			<AbsoluteFill
+				style={{
+					justifyContent: 'flex-end',
+					alignItems: 'center',
+					padding: '0 28px 52px',
+					gap: 28,
+					flexDirection: 'column',
+				}}
+			>
+				{subtitle && activeSubtitle && (
+					<PremiumSubtitle
+						key={subtitleKey}
+						text={subtitle}
+						subtitleKey={subtitleKey}
+						frameInSubtitle={frame - Math.round(activeSubtitle.start * fps)}
+					/>
+				)}
+				<PanelVerseCredit />
+			</AbsoluteFill>
+
+			<Audio src={staticFile('voiceover.mp3')} volume={1} />
+			<Audio
+				src={staticFile('bg-music.mp3')}
+				volume={0.2}
+				startFrom={0}
+				endAt={durationInFrames}
+			/>
+		</AbsoluteFill>
+	);
+};
