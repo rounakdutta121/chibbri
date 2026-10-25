@@ -10,13 +10,9 @@ export const PanelVerseCredit: React.FC = () => {
 	return (
 		<div
 			style={{
-				position: 'absolute',
-				bottom: 48,
-				left: 0,
-				right: 0,
 				display: 'flex',
 				justifyContent: 'center',
-				pointerEvents: 'none',
+				flexShrink: 0,
 			}}
 		>
 			<div

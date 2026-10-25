@@ -118,15 +118,17 @@ export const FatakeshtoVideo: React.FC = () => {
 
 			<AbsoluteFill
 				style={{
-					background: `linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(120,0,40,${flash}) 12%, transparent 38%, transparent 58%, rgba(0,0,0,0.82) 100%)`,
+					background: `linear-gradient(180deg, rgba(120,0,40,${flash}) 0%, transparent 28%, transparent 52%, rgba(0,0,0,0.78) 100%)`,
 				}}
 			/>
 
 			<AbsoluteFill
 				style={{
-					justifyContent: 'flex-start',
+					justifyContent: 'flex-end',
 					alignItems: 'center',
-					padding: '110px 32px 0',
+					padding: '0 28px 52px',
+					gap: 28,
+					flexDirection: 'column',
 				}}
 			>
 				{subtitle && activeSubtitle && (
@@ -137,14 +139,13 @@ export const FatakeshtoVideo: React.FC = () => {
 						frameInSubtitle={frame - Math.round(activeSubtitle.start * fps)}
 					/>
 				)}
+				<PanelVerseCredit />
 			</AbsoluteFill>
-
-			<PanelVerseCredit />
 
 			<Audio src={staticFile('voiceover.mp3')} volume={1} />
 			<Audio
 				src={staticFile('bg-music.mp3')}
-				volume={0.38}
+				volume={0.2}
 				startFrom={0}
 				endAt={durationInFrames}
 			/>

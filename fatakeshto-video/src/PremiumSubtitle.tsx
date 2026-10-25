@@ -73,7 +73,7 @@ export const PremiumSubtitle: React.FC<{
 		durationInFrames: 20,
 	});
 
-	const slideY = interpolate(enter, [0, 1], [36, 0]);
+	const slideY = interpolate(enter, [0, 1], [18, 0]);
 	const scale = interpolate(enter, [0, 1], [0.94, 1]);
 	const glowPulse = interpolate(Math.sin(frame / 10), [-1, 1], [0.35, 0.75]);
 
@@ -91,19 +91,19 @@ export const PremiumSubtitle: React.FC<{
 			style={{
 				transform: `translateY(${slideY}px) scale(${scale})`,
 				opacity: enter,
-				maxWidth: 960,
+				maxWidth: 900,
 				width: '100%',
 				position: 'relative',
-				padding: '2px',
-				borderRadius: 22,
+				padding: '1px',
+				borderRadius: 16,
 				background: `linear-gradient(135deg, rgba(255,180,60,0.95), rgba(180,40,90,0.85), rgba(255,220,120,0.9))`,
 				boxShadow: `0 0 ${30 + glowPulse * 20}px rgba(255, 140, 30, 0.35), 0 16px 40px rgba(0,0,0,0.55)`,
 			}}
 		>
 			<div
 				style={{
-					borderRadius: 20,
-					padding: '22px 26px 24px',
+					borderRadius: 14,
+					padding: '12px 18px 14px',
 					background:
 						'linear-gradient(165deg, rgba(18,6,16,0.88) 0%, rgba(8,2,10,0.92) 100%)',
 					backdropFilter: 'blur(8px)',
@@ -128,8 +128,8 @@ export const PremiumSubtitle: React.FC<{
 					style={{
 						margin: 0,
 						fontFamily: displayFont,
-						fontSize: 40,
-						lineHeight: 1.38,
+						fontSize: 26,
+						lineHeight: 1.35,
 						textAlign: 'center',
 						letterSpacing: 0.25,
 					}}
@@ -138,7 +138,7 @@ export const PremiumSubtitle: React.FC<{
 				</p>
 				<div
 					style={{
-						marginTop: 14,
+						marginTop: 10,
 						height: 2,
 						borderRadius: 999,
 						background:
