@@ -14,3 +14,5 @@ npm run render
 Place `voiceover.mp3` in `public/` (from project source). Subtitle timings are in `src/subtitles.json` (aligned to Whisper segment timestamps on the voice track).
 
 Background music: low-volume tanpura-style drone (`public/bg-music.mp3`), generated for royalty-free use.
+
+Story frames in `public/images/` are **9:16 portrait** (720×1280), generated for Reels/Shorts.

@@ -25,15 +25,15 @@ const SceneImage: React.FC<{src: string; frameInScene: number; sceneDuration: nu
 	frameInScene,
 	sceneDuration,
 }) => {
-	// Portrait reel: stronger vertical Ken Burns on 16:9 art (center crop via cover)
-	const zoom = interpolate(frameInScene, [0, sceneDuration], [1.12, 1.32], {
+	// Native 9:16 art — gentle Ken Burns for reel motion
+	const zoom = interpolate(frameInScene, [0, sceneDuration], [1.02, 1.1], {
 		extrapolateRight: 'clamp',
 		easing: Easing.inOut(Easing.quad),
 	});
-	const panX = interpolate(frameInScene, [0, sceneDuration], [-1, 1], {
+	const panX = interpolate(frameInScene, [0, sceneDuration], [-0.5, 0.5], {
 		extrapolateRight: 'clamp',
 	});
-	const panY = interpolate(frameInScene, [0, sceneDuration], [3, -4], {
+	const panY = interpolate(frameInScene, [0, sceneDuration], [1, -1.5], {
 		extrapolateRight: 'clamp',
 	});
 	const fadeIn = interpolate(frameInScene, [0, 8], [0, 1], {extrapolateRight: 'clamp'});
