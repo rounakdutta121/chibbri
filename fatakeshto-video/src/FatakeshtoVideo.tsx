@@ -11,15 +11,12 @@ import {
 } from 'remotion';
 import subtitles from './subtitles.json';
 import scenes from './scenes.json';
+import {PremiumSubtitle} from './PremiumSubtitle';
 
 type Scene = (typeof scenes)[number];
 
 const images = (index: number) =>
 	staticFile(`images/fatakeshto-${String(index).padStart(2, '0')}.jpg`);
-
-const getActiveSubtitle = (timeSec: number) => {
-	return subtitles.find((s) => timeSec >= s.start && timeSec < s.end)?.text ?? '';
-};
 
 const getActiveScene = (timeSec: number): Scene => {
 	const found = scenes.find((s) => timeSec >= s.start && timeSec < s.end);
@@ -95,10 +92,9 @@ export const FatakeshtoVideo: React.FC = () => {
 				)
 			: 0;
 
-	const subtitle = getActiveSubtitle(timeSec);
-	const subtitleOpacity = subtitle
-		? interpolate(frame % 15, [0, 5, 15], [0.85, 1, 0.85], {extrapolateRight: 'clamp'})
-		: 0;
+	const activeSubtitle = subtitles.find((s) => timeSec >= s.start && timeSec < s.end);
+	const subtitle = activeSubtitle?.text ?? '';
+	const subtitleKey = activeSubtitle ? `${activeSubtitle.start}-${activeSubtitle.text}` : 'none';
 
 	const flash = interpolate(frame % 24, [0, 3, 24], [0.08, 0, 0], {extrapolateRight: 'clamp'});
 
@@ -129,43 +125,23 @@ export const FatakeshtoVideo: React.FC = () => {
 				style={{
 					justifyContent: 'flex-end',
 					alignItems: 'center',
-					padding: '0 36px 140px',
+					padding: '0 32px 300px',
 				}}
 			>
-				{subtitle && (
-					<div
-						style={{
-							opacity: subtitleOpacity,
-							maxWidth: 980,
-							width: '100%',
-							backgroundColor: 'rgba(0,0,0,0.78)',
-							border: '2px solid rgba(255,200,80,0.45)',
-							borderRadius: 16,
-							padding: '16px 22px',
-							boxShadow: '0 8px 32px rgba(0,0,0,0.45)',
-						}}
-					>
-						<p
-							style={{
-								margin: 0,
-								color: '#fff8e7',
-								fontFamily: 'Georgia, "Times New Roman", serif',
-								fontSize: 30,
-								lineHeight: 1.4,
-								textAlign: 'center',
-								textShadow: '0 2px 8px rgba(0,0,0,0.8)',
-							}}
-						>
-							{subtitle}
-						</p>
-					</div>
+				{subtitle && activeSubtitle && (
+					<PremiumSubtitle
+						key={subtitleKey}
+						text={subtitle}
+						subtitleKey={subtitleKey}
+						frameInSubtitle={frame - Math.round(activeSubtitle.start * fps)}
+					/>
 				)}
 			</AbsoluteFill>
 
 			<Audio src={staticFile('voiceover.mp3')} volume={1} />
 			<Audio
 				src={staticFile('bg-music.mp3')}
-				volume={0.14}
+				volume={0.52}
 				startFrom={0}
 				endAt={durationInFrames}
 			/>
