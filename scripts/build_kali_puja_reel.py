@@ -263,7 +263,7 @@ def main() -> None:
         cues = parse_vtt(vtt)
         ass = tdir / "captions.ass"
         vtt_to_ass(cues, ass)
-        add_title_cards(ass, SCENES)
+        # Story frames are text-free; narration captions only (no on-image title cards).
 
         # SFX bed: sparse hits at scene boundaries
         sfx_parts = []
