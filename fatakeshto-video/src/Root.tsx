@@ -12,8 +12,8 @@ export const RemotionRoot: React.FC = () => {
 			component={FatakeshtoVideo}
 			durationInFrames={Math.ceil(DURATION_SEC * FPS)}
 			fps={FPS}
-			width={1920}
-			height={1080}
+			width={1080}
+			height={1920}
 		/>
 	);
 };

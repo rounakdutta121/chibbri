@@ -25,14 +25,15 @@ const SceneImage: React.FC<{src: string; frameInScene: number; sceneDuration: nu
 	frameInScene,
 	sceneDuration,
 }) => {
-	const zoom = interpolate(frameInScene, [0, sceneDuration], [1.05, 1.18], {
+	// Portrait reel: stronger vertical Ken Burns on 16:9 art (center crop via cover)
+	const zoom = interpolate(frameInScene, [0, sceneDuration], [1.12, 1.32], {
 		extrapolateRight: 'clamp',
 		easing: Easing.inOut(Easing.quad),
 	});
-	const panX = interpolate(frameInScene, [0, sceneDuration], [-2, 2], {
+	const panX = interpolate(frameInScene, [0, sceneDuration], [-1, 1], {
 		extrapolateRight: 'clamp',
 	});
-	const panY = interpolate(frameInScene, [0, sceneDuration], [1, -1], {
+	const panY = interpolate(frameInScene, [0, sceneDuration], [3, -4], {
 		extrapolateRight: 'clamp',
 	});
 	const fadeIn = interpolate(frameInScene, [0, 8], [0, 1], {extrapolateRight: 'clamp'});
@@ -110,7 +111,7 @@ export const FatakeshtoVideo: React.FC = () => {
 
 			<AbsoluteFill
 				style={{
-					background: `linear-gradient(180deg, rgba(120,0,40,${flash}) 0%, transparent 35%, transparent 65%, rgba(0,0,0,0.75) 100%)`,
+					background: `linear-gradient(180deg, rgba(120,0,40,${flash}) 0%, transparent 30%, transparent 55%, rgba(0,0,0,0.82) 100%)`,
 				}}
 			/>
 
@@ -118,18 +119,19 @@ export const FatakeshtoVideo: React.FC = () => {
 				style={{
 					justifyContent: 'flex-end',
 					alignItems: 'center',
-					padding: '0 48px 72px',
+					padding: '0 36px 140px',
 				}}
 			>
 				{subtitle && (
 					<div
 						style={{
 							opacity: subtitleOpacity,
-							maxWidth: 1200,
-							backgroundColor: 'rgba(0,0,0,0.72)',
+							maxWidth: 980,
+							width: '100%',
+							backgroundColor: 'rgba(0,0,0,0.78)',
 							border: '2px solid rgba(255,200,80,0.45)',
-							borderRadius: 12,
-							padding: '18px 28px',
+							borderRadius: 16,
+							padding: '16px 22px',
 							boxShadow: '0 8px 32px rgba(0,0,0,0.45)',
 						}}
 					>
@@ -138,8 +140,8 @@ export const FatakeshtoVideo: React.FC = () => {
 								margin: 0,
 								color: '#fff8e7',
 								fontFamily: 'Georgia, "Times New Roman", serif',
-								fontSize: 34,
-								lineHeight: 1.35,
+								fontSize: 30,
+								lineHeight: 1.4,
 								textAlign: 'center',
 								textShadow: '0 2px 8px rgba(0,0,0,0.8)',
 							}}
