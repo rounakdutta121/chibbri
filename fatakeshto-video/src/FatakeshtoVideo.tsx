@@ -12,6 +12,7 @@ import {
 import subtitles from './subtitles.json';
 import scenes from './scenes.json';
 import {PremiumSubtitle} from './PremiumSubtitle';
+import {PanelVerseCredit} from './PanelVerseCredit';
 
 type Scene = (typeof scenes)[number];
 
@@ -117,15 +118,15 @@ export const FatakeshtoVideo: React.FC = () => {
 
 			<AbsoluteFill
 				style={{
-					background: `linear-gradient(180deg, rgba(120,0,40,${flash}) 0%, transparent 30%, transparent 55%, rgba(0,0,0,0.82) 100%)`,
+					background: `linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(120,0,40,${flash}) 12%, transparent 38%, transparent 58%, rgba(0,0,0,0.82) 100%)`,
 				}}
 			/>
 
 			<AbsoluteFill
 				style={{
-					justifyContent: 'flex-end',
+					justifyContent: 'flex-start',
 					alignItems: 'center',
-					padding: '0 32px 300px',
+					padding: '110px 32px 0',
 				}}
 			>
 				{subtitle && activeSubtitle && (
@@ -138,10 +139,12 @@ export const FatakeshtoVideo: React.FC = () => {
 				)}
 			</AbsoluteFill>
 
+			<PanelVerseCredit />
+
 			<Audio src={staticFile('voiceover.mp3')} volume={1} />
 			<Audio
 				src={staticFile('bg-music.mp3')}
-				volume={0.52}
+				volume={0.38}
 				startFrom={0}
 				endAt={durationInFrames}
 			/>
