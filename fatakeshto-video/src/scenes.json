@@ -1,0 +1,20 @@
+[
+  {"image": 1, "start": 0, "end": 4.34},
+  {"image": 2, "start": 4.34, "end": 10.54},
+  {"image": 4, "start": 10.54, "end": 13.88},
+  {"image": 6, "start": 13.88, "end": 18.88},
+  {"image": 5, "start": 18.88, "end": 23},
+  {"image": 3, "start": 23, "end": 27.2},
+  {"image": 8, "start": 27.2, "end": 29.68},
+  {"image": 7, "start": 29.68, "end": 33.68},
+  {"image": 9, "start": 33.68, "end": 37.8},
+  {"image": 15, "start": 37.8, "end": 41.3},
+  {"image": 10, "start": 41.3, "end": 44.5},
+  {"image": 16, "start": 44.5, "end": 46.3},
+  {"image": 11, "start": 46.3, "end": 51.34},
+  {"image": 12, "start": 51.34, "end": 53.2},
+  {"image": 13, "start": 53.2, "end": 54.85},
+  {"image": 14, "start": 54.85, "end": 56.52},
+  {"image": 17, "start": 56.52, "end": 59.4},
+  {"image": 18, "start": 59.4, "end": 65.15}
+]

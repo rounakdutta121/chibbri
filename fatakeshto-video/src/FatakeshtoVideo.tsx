@@ -10,36 +10,41 @@ import {
 	Easing,
 } from 'remotion';
 import subtitles from './subtitles.json';
+import scenes from './scenes.json';
 
-const IMAGE_COUNT = 18;
-const images = Array.from({length: IMAGE_COUNT}, (_, i) =>
-	staticFile(`images/fatakeshto-${String(i + 1).padStart(2, '0')}.jpg`),
-);
+type Scene = (typeof scenes)[number];
+
+const images = (index: number) =>
+	staticFile(`images/fatakeshto-${String(index).padStart(2, '0')}.jpg`);
 
 const getActiveSubtitle = (timeSec: number) => {
 	return subtitles.find((s) => timeSec >= s.start && timeSec < s.end)?.text ?? '';
 };
 
-const SceneImage: React.FC<{src: string; frameInScene: number; sceneDuration: number}> = ({
-	src,
-	frameInScene,
-	sceneDuration,
-}) => {
-	// Native 9:16 art — gentle Ken Burns for reel motion
-	const zoom = interpolate(frameInScene, [0, sceneDuration], [1.02, 1.1], {
+const getActiveScene = (timeSec: number): Scene => {
+	const found = scenes.find((s) => timeSec >= s.start && timeSec < s.end);
+	return found ?? scenes[scenes.length - 1];
+};
+
+const SceneImage: React.FC<{
+	src: string;
+	frameInScene: number;
+	sceneDurationFrames: number;
+}> = ({src, frameInScene, sceneDurationFrames}) => {
+	const zoom = interpolate(frameInScene, [0, sceneDurationFrames], [1.02, 1.1], {
 		extrapolateRight: 'clamp',
 		easing: Easing.inOut(Easing.quad),
 	});
-	const panX = interpolate(frameInScene, [0, sceneDuration], [-0.5, 0.5], {
+	const panX = interpolate(frameInScene, [0, sceneDurationFrames], [-0.5, 0.5], {
 		extrapolateRight: 'clamp',
 	});
-	const panY = interpolate(frameInScene, [0, sceneDuration], [1, -1.5], {
+	const panY = interpolate(frameInScene, [0, sceneDurationFrames], [1, -1.5], {
 		extrapolateRight: 'clamp',
 	});
-	const fadeIn = interpolate(frameInScene, [0, 8], [0, 1], {extrapolateRight: 'clamp'});
+	const fadeIn = interpolate(frameInScene, [0, 10], [0, 1], {extrapolateRight: 'clamp'});
 	const fadeOut = interpolate(
 		frameInScene,
-		[sceneDuration - 10, sceneDuration],
+		[sceneDurationFrames - 12, sceneDurationFrames],
 		[1, 0],
 		{extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
 	);
@@ -71,23 +76,28 @@ export const FatakeshtoVideo: React.FC = () => {
 	const {fps, durationInFrames} = useVideoConfig();
 	const timeSec = frame / fps;
 
-	const sceneDuration = Math.floor(durationInFrames / IMAGE_COUNT);
-	const sceneIndex = Math.min(IMAGE_COUNT - 1, Math.floor(frame / sceneDuration));
-	const frameInScene = frame - sceneIndex * sceneDuration;
-	const nextIndex = Math.min(IMAGE_COUNT - 1, sceneIndex + 1);
-	const crossfade = interpolate(frameInScene, [sceneDuration - 12, sceneDuration], [0, 1], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
+	const scene = getActiveScene(timeSec);
+	const sceneIndex = scenes.indexOf(scene);
+	const nextScene = scenes[sceneIndex + 1];
+
+	const sceneStartFrame = Math.round(scene.start * fps);
+	const sceneEndFrame = Math.round(scene.end * fps);
+	const sceneDurationFrames = Math.max(1, sceneEndFrame - sceneStartFrame);
+	const frameInScene = frame - sceneStartFrame;
+
+	const crossfade =
+		nextScene && frameInScene >= sceneDurationFrames - 12
+			? interpolate(
+					frameInScene,
+					[sceneDurationFrames - 12, sceneDurationFrames],
+					[0, 1],
+					{extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+				)
+			: 0;
 
 	const subtitle = getActiveSubtitle(timeSec);
 	const subtitleOpacity = subtitle
-		? interpolate(
-				frame % 15,
-				[0, 5, 15],
-				[0.85, 1, 0.85],
-				{extrapolateRight: 'clamp'},
-			)
+		? interpolate(frame % 15, [0, 5, 15], [0.85, 1, 0.85], {extrapolateRight: 'clamp'})
 		: 0;
 
 	const flash = interpolate(frame % 24, [0, 3, 24], [0.08, 0, 0], {extrapolateRight: 'clamp'});
@@ -95,16 +105,16 @@ export const FatakeshtoVideo: React.FC = () => {
 	return (
 		<AbsoluteFill style={{backgroundColor: '#0a0208'}}>
 			<SceneImage
-				src={images[sceneIndex]}
+				src={images(scene.image)}
 				frameInScene={frameInScene}
-				sceneDuration={sceneDuration}
+				sceneDurationFrames={sceneDurationFrames}
 			/>
-			{crossfade > 0 && (
+			{crossfade > 0 && nextScene && (
 				<AbsoluteFill style={{opacity: crossfade}}>
 					<SceneImage
-						src={images[nextIndex]}
+						src={images(nextScene.image)}
 						frameInScene={0}
-						sceneDuration={sceneDuration}
+						sceneDurationFrames={Math.round((nextScene.end - nextScene.start) * fps)}
 					/>
 				</AbsoluteFill>
 			)}
@@ -153,7 +163,12 @@ export const FatakeshtoVideo: React.FC = () => {
 			</AbsoluteFill>
 
 			<Audio src={staticFile('voiceover.mp3')} volume={1} />
-			<Audio src={staticFile('bg-music.mp3')} volume={0.14} startFrom={0} endAt={durationInFrames} />
+			<Audio
+				src={staticFile('bg-music.mp3')}
+				volume={0.14}
+				startFrom={0}
+				endAt={durationInFrames}
+			/>
 		</AbsoluteFill>
 	);
 };
