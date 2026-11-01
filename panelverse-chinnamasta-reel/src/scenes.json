@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "file": "scenes/scene-01.jpg",
+    "start": 0.0,
+    "end": 1.6,
+    "prompt": "PanelVerse title card atmosphere, mystical maroon temple gates opening, golden light beams, empty scene for intro Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      0,
+      0
+    ]
+  },
+  {
+    "id": 2,
+    "file": "scenes/scene-02.jpg",
+    "start": 1.6,
+    "end": 3.6,
+    "prompt": "Silhouette of ten Mahavidya goddesses in a cosmic arc, Indian cartoon mythology style Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      1,
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "file": "scenes/scene-03.jpg",
+    "start": 3.6,
+    "end": 6.0,
+    "prompt": "Close-up cartoon scroll revealing the name Chinnamasta in visual symbols only, severed head icon glowing Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      2,
+      2
+    ]
+  },
+  {
+    "id": 4,
+    "file": "scenes/scene-04.jpg",
+    "start": 6.0,
+    "end": 7.28,
+    "prompt": "Full-body Chinnamasta cartoon goddess standing proud, holding her own head in left hand, khadga in right, red skin Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      3,
+      3
+    ]
+  },
+  {
+    "id": 5,
+    "file": "scenes/scene-05.jpg",
+    "start": 7.28,
+    "end": 8.6,
+    "prompt": "Same Chinnamasta character close-up three eyes and calm fierce expression, Indian animation style Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      4,
+      4
+    ]
+  },
+  {
+    "id": 6,
+    "file": "scenes/scene-06.jpg",
+    "start": 8.6,
+    "end": 11.84,
+    "prompt": "Same Chinnamasta character showing khadga sword and head in hands, dynamic pose Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      5,
+      5
+    ]
+  },
+  {
+    "id": 7,
+    "file": "scenes/scene-07.jpg",
+    "start": 11.84,
+    "end": 16.12,
+    "prompt": "Three luminous red energy streams flowing from goddess neck, cartoon symbolic not gory Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      6,
+      6
+    ]
+  },
+  {
+    "id": 8,
+    "file": "scenes/scene-08.jpg",
+    "start": 16.12,
+    "end": 19.12,
+    "prompt": "Dakini and Varnini attendants fair and red skin flanking the same Chinnamasta design Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      7,
+      7
+    ]
+  },
+  {
+    "id": 9,
+    "file": "scenes/scene-09.jpg",
+    "start": 19.12,
+    "end": 21.12,
+    "prompt": "Same attendants drinking energy streams, spiritual cartoon style Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      8,
+      8
+    ]
+  },
+  {
+    "id": 10,
+    "file": "scenes/scene-10.jpg",
+    "start": 21.12,
+    "end": 23.12,
+    "prompt": "Kamadeva and Rati tiny figures beneath goddess feet on lotus, Indian cartoon Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      9,
+      9
+    ]
+  },
+  {
+    "id": 11,
+    "file": "scenes/scene-11.jpg",
+    "start": 23.12,
+    "end": 24.560000000000002,
+    "prompt": "Kamadeva and Rati embrace beneath lotus as goddess watches from above, romantic cartoon symbolism Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      10,
+      10
+    ]
+  },
+  {
+    "id": 12,
+    "file": "scenes/scene-12.jpg",
+    "start": 24.560000000000002,
+    "end": 26.72,
+    "prompt": "Half-burned cremation ground at night with fire pits, Indian mythological cartoon background Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      11,
+      11
+    ]
+  },
+  {
+    "id": 13,
+    "file": "scenes/scene-13.jpg",
+    "start": 26.72,
+    "end": 28.560000000000002,
+    "prompt": "Sacred fire and smoke swirling, dramatic orange flames portrait scene Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      12,
+      12
+    ]
+  },
+  {
+    "id": 14,
+    "file": "scenes/scene-14.jpg",
+    "start": 28.560000000000002,
+    "end": 30.72,
+    "prompt": "Triptych feeling: life lotus, death skull, passion fire symbols in one cartoon frame Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      13,
+      13
+    ]
+  },
+  {
+    "id": 15,
+    "file": "scenes/scene-15.jpg",
+    "start": 30.72,
+    "end": 32.400000000000006,
+    "prompt": "Goddess Parvati bathing in river with two companions, Bengali cartoon mythology, modest respectful Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      14,
+      14
+    ]
+  },
+  {
+    "id": 16,
+    "file": "scenes/scene-16.jpg",
+    "start": 32.44,
+    "end": 35.839999999999996,
+    "prompt": "Parvati and companions exhausted from hunger, worried expressions, river ghat background Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      15,
+      15
+    ]
+  },
+  {
+    "id": 17,
+    "file": "scenes/scene-17.jpg",
+    "start": 35.839999999999996,
+    "end": 38.28,
+    "prompt": "Symbolic red life-energy flowing from Parvati's form, magical cartoon rays not graphic Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      16,
+      16
+    ]
+  },
+  {
+    "id": 18,
+    "file": "scenes/scene-18.jpg",
+    "start": 38.28,
+    "end": 39.72,
+    "prompt": "Parvati raising khadga toward sky in symbolic self-sacrifice moment, no gore, golden light burst Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      17,
+      17
+    ]
+  },
+  {
+    "id": 19,
+    "file": "scenes/scene-19.jpg",
+    "start": 39.72,
+    "end": 41.12,
+    "prompt": "Three energy streams feeding companions and self, cartoon spiritual metaphor Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      18,
+      18
+    ]
+  },
+  {
+    "id": 20,
+    "file": "scenes/scene-20.jpg",
+    "start": 41.12,
+    "end": 42.92,
+    "prompt": "Lotus feeding lotus imagery, life nourishing life, Indian cartoon symbolism Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      19,
+      19
+    ]
+  },
+  {
+    "id": 21,
+    "file": "scenes/scene-21.jpg",
+    "start": 42.92,
+    "end": 45.96,
+    "prompt": "Fierce Chandika form of goddess with wild energy aura, same red character design Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      20,
+      20
+    ]
+  },
+  {
+    "id": 22,
+    "file": "scenes/scene-22.jpg",
+    "start": 45.96,
+    "end": 49.120000000000005,
+    "prompt": "Goddess holding ritual cup in trance, dark purple background, cartoon style Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      21,
+      21
+    ]
+  },
+  {
+    "id": 23,
+    "file": "scenes/scene-23.jpg",
+    "start": 49.120000000000005,
+    "end": 51.28,
+    "prompt": "Transformation reveal: Chandika becomes calm Chinnamasta same character design center frame Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      22,
+      22
+    ]
+  },
+  {
+    "id": 24,
+    "file": "scenes/scene-24.jpg",
+    "start": 51.28,
+    "end": 54.36,
+    "prompt": "Lightning vajra and goddess merged, tantric power cartoon illustration Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      23,
+      23
+    ]
+  },
+  {
+    "id": 25,
+    "file": "scenes/scene-25.jpg",
+    "start": 54.36,
+    "end": 56.24,
+    "prompt": "Sahasrara lotus chakra glowing above head silhouette, kundalini spiral golden Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      24,
+      24
+    ]
+  },
+  {
+    "id": 26,
+    "file": "scenes/scene-26.jpg",
+    "start": 56.24,
+    "end": 58.480000000000004,
+    "prompt": "Human head silhouette dissolving into stars, ego becoming void, spiritual cartoon Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      25,
+      25
+    ]
+  },
+  {
+    "id": 27,
+    "file": "scenes/scene-27.jpg",
+    "start": 58.480000000000004,
+    "end": 60.56,
+    "prompt": "Empty luminous void with floating golden particles, siddhi achievement mood Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      26,
+      26
+    ]
+  },
+  {
+    "id": 28,
+    "file": "scenes/scene-28.jpg",
+    "start": 60.56,
+    "end": 64.28,
+    "prompt": "Ritual altar with sixteen offerings plates shodashopachara, Indian cartoon top view Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      27,
+      27
+    ]
+  },
+  {
+    "id": 29,
+    "file": "scenes/scene-29.jpg",
+    "start": 64.28,
+    "end": 67.16,
+    "prompt": "Tantric yantra mandala glowing red gold, mantra letters as abstract shapes not readable text Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      28,
+      28
+    ]
+  },
+  {
+    "id": 30,
+    "file": "scenes/scene-30.jpg",
+    "start": 67.16,
+    "end": 70.56,
+    "prompt": "Ancient ritual fire homa with offerings, priest silhouette, cartoon Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      29,
+      29
+    ]
+  },
+  {
+    "id": 31,
+    "file": "scenes/scene-31.jpg",
+    "start": 70.56,
+    "end": 72.28,
+    "prompt": "Modern symbolic pumpkin and rice offering instead of animal, gentle cartoon scene Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      30,
+      30
+    ]
+  },
+  {
+    "id": 32,
+    "file": "scenes/scene-32.jpg",
+    "start": 72.28,
+    "end": 74.68,
+    "prompt": "Guru whispering to disciple in shadow, secret mouth-to-ear teaching, Indian cartoon Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      31,
+      31
+    ]
+  },
+  {
+    "id": 33,
+    "file": "scenes/scene-33.jpg",
+    "start": 74.68,
+    "end": 76.16,
+    "prompt": "Serampore Bengali zamindar house courtyard puja, Sen Bari atmosphere, lamps and flowers Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": 34,
+    "file": "scenes/scene-34.jpg",
+    "start": 76.16,
+    "end": 78.56,
+    "prompt": "Closed wooden door with mystic lock, left-hand tantra secrets hidden from crowd Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      33,
+      33
+    ]
+  },
+  {
+    "id": 35,
+    "file": "scenes/scene-35.jpg",
+    "start": 78.56,
+    "end": 80.56,
+    "prompt": "Chinnamasta fierce close-up with fire eyes, terrifying but divine cartoon Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      34,
+      34
+    ]
+  },
+  {
+    "id": 36,
+    "file": "scenes/scene-36.jpg",
+    "start": 80.56,
+    "end": 83.36,
+    "prompt": "Same goddess offering bowl of light to devotees, compassionate giver mood Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      35,
+      35
+    ]
+  },
+  {
+    "id": 37,
+    "file": "scenes/scene-37.jpg",
+    "start": 83.36,
+    "end": 85.88,
+    "prompt": "Path of liberation: mind chains breaking into butterflies, cartoon metaphor Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      36,
+      36
+    ]
+  },
+  {
+    "id": 38,
+    "file": "scenes/scene-38.jpg",
+    "start": 85.88,
+    "end": 88.64,
+    "prompt": "Hero shot Chinnamasta full figure with attendants on cremation fire background same design Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      37,
+      37
+    ]
+  },
+  {
+    "id": 39,
+    "file": "scenes/scene-39.jpg",
+    "start": 88.64,
+    "end": 91.36,
+    "prompt": "Devotional close-up Chin namasta blessing gesture, same cartoon goddess design Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      38,
+      38
+    ]
+  },
+  {
+    "id": 40,
+    "file": "scenes/scene-40.jpg",
+    "start": 91.36,
+    "end": 95.88,
+    "prompt": "Cosmic finale goddess merged with universe stars, headless silhouette filled with galaxies same character Indian mythological TV cartoon animation still, portrait 9:16, bold outlines, rich maroon gold palette, cinematic lighting, no text, no watermark. Recurring goddess design: youthful red-orange skin, long black hair, gold crown, skull garland, green snake sacred thread, four arms when shown as Chinnamasta.",
+    "segmentRange": [
+      39,
+      40
+    ]
+  }
+]
