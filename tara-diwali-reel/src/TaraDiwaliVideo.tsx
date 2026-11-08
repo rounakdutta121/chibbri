@@ -182,7 +182,7 @@ export const TaraDiwaliVideo: React.FC = () => {
 
 			<AbsoluteFill
 				style={{
-					background: `linear-gradient(180deg, rgba(255,120,40,${beat}) 0%, transparent 18%, transparent 48%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.85) 100%)`,
+					background: `linear-gradient(180deg, rgba(255,120,40,${beat}) 0%, transparent 18%, transparent 42%, rgba(0,0,0,0.55) 72%, rgba(0,0,0,0.78) 100%)`,
 				}}
 			/>
 
@@ -192,7 +192,7 @@ export const TaraDiwaliVideo: React.FC = () => {
 				style={{
 					justifyContent: 'flex-end',
 					alignItems: 'center',
-					padding: '0 24px 220px',
+					padding: '0 28px 420px',
 					zIndex: 30,
 				}}
 			>
@@ -211,7 +211,7 @@ export const TaraDiwaliVideo: React.FC = () => {
 				src={staticFile('bg-music.mp3')}
 				volume={0.16}
 				startFrom={Math.round(15 * fps)}
-				endAt={durationInFrames}
+				loop
 			/>
 		</AbsoluteFill>
 	);
