@@ -1,7 +1,7 @@
-# Tara Ma & Ma Kali (cartoon reference)
+# Tara Ma in this reel
 
-**Tara (Mahavidya)** — always **dark blue** (not black), short, **pot belly**, **four arms**: **khadga**, **scissors (kartri)**, **kapala**, **blue lotus**; **tiger-skin** skirt; **garland of severed heads**; **single matted braid (ekajata)**; **pratyalidha** stance **on reclining Shiva**; can show **mother nursing Shiva** (Tarapith lore).
+**Rule:** Tara Ma = **Ma Kali in blue** — same pose, **same hand weapons as Kali** (curved **sword** + **skull cup**), **tongue sticking out**, skull-garland, on Shiva. Only difference: **blue** skin (not black).
 
-**Ma Kali** — **black** skin, **red lolling tongue**, **skull garland**, **girdle of severed arms**, **sword**, **standing on Shiva**; puja pandals, dhak, diyas.
+**Ma Kali:** identical, **black** skin.
 
-**Visual style:** vibrant Diwali **festival cartoon**, saturated marigold/gold/magenta/purple, sparkling diyas — **not** gloomy or desaturated.
+Visual style: vibrant Diwali festival cartoon, saturated colors.

@@ -70,7 +70,7 @@ export const PremiumSubtitle: React.FC<{
 		durationInFrames: 20,
 	});
 
-	const slideY = interpolate(enter, [0, 1], [18, 0]);
+	const slideY = interpolate(enter, [0, 1], [12, 0]);
 	const scale = interpolate(enter, [0, 1], [0.94, 1]);
 	const glowPulse = interpolate(Math.sin(frame / 10), [-1, 1], [0.35, 0.75]);
 
@@ -125,7 +125,7 @@ export const PremiumSubtitle: React.FC<{
 					style={{
 						margin: 0,
 						fontFamily: displayFont,
-						fontSize: 26,
+						fontSize: 24,
 						lineHeight: 1.35,
 						textAlign: 'center',
 						letterSpacing: 0.25,

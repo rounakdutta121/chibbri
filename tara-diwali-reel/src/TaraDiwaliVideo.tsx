@@ -182,7 +182,7 @@ export const TaraDiwaliVideo: React.FC = () => {
 
 			<AbsoluteFill
 				style={{
-					background: `linear-gradient(180deg, rgba(255,120,40,${beat}) 0%, transparent 18%, transparent 58%, rgba(0,0,0,0.85) 100%)`,
+					background: `linear-gradient(180deg, rgba(255,120,40,${beat}) 0%, transparent 18%, transparent 48%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.85) 100%)`,
 				}}
 			/>
 
@@ -192,7 +192,7 @@ export const TaraDiwaliVideo: React.FC = () => {
 				style={{
 					justifyContent: 'flex-end',
 					alignItems: 'center',
-					padding: '0 24px 56px',
+					padding: '0 24px 220px',
 					zIndex: 30,
 				}}
 			>
