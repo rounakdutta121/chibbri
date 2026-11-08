@@ -110,7 +110,7 @@ const SceneImage: React.FC<{
 			<AbsoluteFill
 				style={{
 					background:
-						'radial-gradient(circle at center, transparent 36%, rgba(0,0,0,0.52) 100%)',
+						'radial-gradient(circle at center, transparent 42%, rgba(40,0,60,0.35) 100%)',
 				}}
 			/>
 		</AbsoluteFill>
@@ -146,10 +146,10 @@ export const TaraDiwaliVideo: React.FC = () => {
 	const subtitle = activeSubtitle?.text ?? '';
 	const subtitleKey = activeSubtitle ? `${activeSubtitle.start}-${activeSubtitle.text}` : 'none';
 
-	const beat = interpolate(frame % 18, [0, 9, 18], [0, 0.09, 0], {extrapolateRight: 'clamp'});
+	const beat = interpolate(frame % 18, [0, 9, 18], [0, 0.14, 0], {extrapolateRight: 'clamp'});
 
 	return (
-		<AbsoluteFill style={{backgroundColor: '#060208'}}>
+		<AbsoluteFill style={{backgroundColor: '#1a0520'}}>
 			{prevScene && frameInScene < 4 && (
 				<AbsoluteFill style={{opacity: 1 - frameInScene / 4}}>
 					<SceneImage
